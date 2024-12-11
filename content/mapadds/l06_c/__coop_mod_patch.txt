@@ -1,0 +1,70 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-1244 -1585 -624"
+			"spawnflags" "1"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-295 -2406 -1030"
+			"spawnflags" "0"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_01"
+			"parentname" "PUITS_ascenceur_pour_l_echaffaud"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-341 -1621 -971"
+			"model" "*39"
+			"target" "teleport_raft_target"
+			"targetname" "teleport_to_raft"
+			"spawnflags" "1"
+			"startdisabled" "1"
+			"classname" "trigger_teleport"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"landmark_06_B_06_C"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"Puits_relayPUSHetc"
+			}
+			"add:key"
+			{
+				"OnTrigger" "teleport_to_raft,Enable,,0,1,1,"
+				"OnTrigger" "spawnpoint_00,kill,,0,1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,1,1,"
+			}
+		}
+	}
+}

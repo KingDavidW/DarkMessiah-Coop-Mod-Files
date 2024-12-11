@@ -1,0 +1,330 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "1345 -6055 2645"
+			"spawnflags" "1"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "4553 -4475 870"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"landmark_L06_C-L06_D"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"1906 -4511 1846"
+			}
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"4427 -4429 848"
+			}
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"3440 -4128 -148"
+			}
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"4424 -1792 -424"
+			}
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"close.portalmuraille"
+			}
+			"remove:key"
+			{
+				"OnTrigger" "PortalTemple01.01,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.02,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.03,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.04,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.05,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.06,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.07,Close,,0,-1,1,"
+				"OnTrigger" "PortalTemple01.08,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"4016.5 -4159 899"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "1977 -4336 1677"
+			"angles" "0 270 0"
+			"parentname" "func_rotating_car_post"
+			"model" "models/props/tools/humans/L11_vanne/l11_vanne_manivelle.mdl"
+			"classname" "prop_dynamic"
+		}
+
+		"add:entity"
+		{
+			"model" "*108"
+			"dmg" "0"
+			"volume" "10"
+			"fanfriction" "20"
+			"maxspeed" "100"
+			"disableshadows" "0"
+			"origin" "1977 -4336 1677"
+			"spawnflags" "8"
+			"solidbsp" "0"
+			"disablereceiveshadows" "0"
+			"rendercolor" "255 255 255"
+			"renderamt" "255"
+			"rendermode" "0"
+			"renderfx" "0"
+			"angles" "0 0 0"
+			"targetname" "func_rotating_car_post"
+			"combinability" "1"
+			"classname" "func_rotating"
+		}
+
+		"add:entity"
+		{
+			"model" "*109"
+			"unlocked_sentence" "0"
+			"locked_sentence" "0"
+			"unlocked_sound" "0"
+			"locked_sound" "0"
+			"wait" "1"
+			"sounds" "0"
+			"lip" "0"
+			"health" "0"
+			"speed" "5"
+			"movedir" "0 0 0"
+			"origin" "1977 -4336 1677"
+			"spawnflags" "3073"
+			"disablereceiveshadows" "0"
+			"rendercolor" "255 255 255"
+			"renderamt" "255"
+			"rendermode" "0"
+			"renderfx" "0"
+			"angles" "0 180 0"
+			"targetname" "mom_rot_button_car_back"
+			"combinability" "1"
+			"classname" "func_button"
+			"OnPressed" "logic_branch_car,ToggleTest,,0,-1,1,"
+			"OnPressed" "!self,Lock,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "1975 -4331 1610"
+			"angles" "0 0 0"
+			"model" "models/props/debris/woodbeam_scaled.mdl"
+			"modelscale" "0.5"
+			"classname" "prop_dynamic"
+		}
+
+		"add:entity"
+		{
+			"origin" "1975 -4331 1792"
+			"NextKey" "Tele_Kf_rope_3AB1"
+			"RopeMaterial" "cable/cr_chain01"
+			"Breakable" "0"
+			"Dangling" "0"
+			"Collide" "0"
+			"TextureScale" "0.2"
+			"Width" "5"
+			"Barbed" "0"
+			"Subdiv" "2"
+			"Type" "0"
+			"Slack" "110"
+			"maxdxlevel" "0"
+			"mindxlevel" "0"
+			"MoveSpeed" "64"
+			"targetname" "Tele_Kf_rope_3AB1post"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "keyframe_rope"
+		}
+		
+		"add:entity"
+		{
+			"origin" "2296 -5775 2582"
+			"angles" "0 0 0"
+			"parentname" "func_rotating_car_A_post"
+			"model" "models/props/tools/humans/L11_vanne/l11_vanne_manivelle.mdl"
+			"classname" "prop_dynamic"
+		}
+
+		"add:entity"
+		{
+			"model" "*108"
+			"dmg" "0"
+			"volume" "10"
+			"fanfriction" "20"
+			"maxspeed" "100"
+			"disableshadows" "0"
+			"origin" "2296 -5775 2582"
+			"spawnflags" "8"
+			"solidbsp" "0"
+			"disablereceiveshadows" "0"
+			"rendercolor" "255 255 255"
+			"renderamt" "255"
+			"rendermode" "0"
+			"renderfx" "0"
+			"angles" "0 90 0"
+			"targetname" "func_rotating_car_A_post"
+			"combinability" "1"
+			"classname" "func_rotating"
+		}
+
+		"add:entity"
+		{
+			"model" "*109"
+			"unlocked_sentence" "0"
+			"locked_sentence" "0"
+			"unlocked_sound" "0"
+			"locked_sound" "0"
+			"wait" "1"
+			"sounds" "0"
+			"lip" "0"
+			"health" "0"
+			"speed" "5"
+			"movedir" "0 0 0"
+			"origin" "2296 -5775 2582"
+			"spawnflags" "3073"
+			"disablereceiveshadows" "0"
+			"rendercolor" "255 255 255"
+			"renderamt" "255"
+			"rendermode" "0"
+			"renderfx" "0"
+			"angles" "0 90 0"
+			"targetname" "mom_rot_button_car_ABack"
+			"combinability" "1"
+			"classname" "func_button"
+			"OnPressed" "!self,Lock,,0,-1,1,"
+			"OnPressed" "bis_logic_branch_car,ToggleTest,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "2290 -5776 2516"
+			"angles" "0 0 0"
+			"model" "models/props/debris/woodbeam_scaled.mdl"
+			"modelscale" "0.5"
+			"classname" "prop_dynamic"
+		}
+		
+		"add:entity"
+		{
+			"origin" "2290 -5776 2698"
+			"NextKey" "Tele_Kf_rope_2AB2"
+			"RopeMaterial" "cable/cr_chain01"
+			"Breakable" "0"
+			"Dangling" "0"
+			"Collide" "0"
+			"TextureScale" "0.2"
+			"Width" "5"
+			"Barbed" "0"
+			"Subdiv" "2"
+			"Type" "0"
+			"Slack" "110"
+			"maxdxlevel" "0"
+			"mindxlevel" "0"
+			"MoveSpeed" "64"
+			"targetname" "Tele_Kf_rope_3AA1post"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "keyframe_rope"
+		}
+
+	}
+}

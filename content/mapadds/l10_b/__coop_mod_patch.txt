@@ -1,0 +1,127 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "1680 3720 520"
+			"spawnflags" "1"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "3500 4545 5"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "3500 4440 -490"
+			"spawnflags" "0"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1222 -4111 572"
+			"filtername" "gotorb"
+			"targetname" "filter_gotorb"
+			"Negated" "1"
+			"combinability" "1"
+			"classname" "filter_activator_name"
+		}
+
+		"add:entity"
+		{
+			"model" "*34"
+			"origin" "2677 6686 -568"
+			"spawnflags" "1"
+			"targetname" "key_blackorb_trigger"
+			"startdisabled" "1"
+			"filtername" "filter_gotorb"
+			"classname" "trigger_multiple"
+			"OnTrigger" "!activator,AddOutput,targetname gotorb,0,-1,1,"
+			"OnTrigger" "playerinputs,GiveItem,key_blackorb,0,-1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" 	"key_blackorb"
+			}
+			"add:key"
+			{
+				"OnAddedToInventory" "!self,AddOutput,targetname key_blackorb,0,-1,1,"
+				"OnAddedToInventory" "key_blackorb_trigger,Enable,,0.1,-1,1,"
+				"OnAddedToInventory" "!activator,AddOutput,targetname gotorb,0,-1,1,"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"3496 4920 266"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"MAP_AB_01"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"3496 4920 -344"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"bibliodoor"
+			}
+			"add:key"
+			{
+				"OnOut" "spawnpoint_01,kill,,0,-1,1,"
+				"OnOut" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}	
+
+	}	
+}

@@ -1,0 +1,165 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-2985 -5608 -4336"
+			"spawnflags" "1"
+			"angles" "0 45 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-100 -7060 -3800"
+			"spawnflags" "0"
+			"angles" "0 20 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-635 -2875 -3855"
+			"spawnflags" "0"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-2295 1182 -2265"
+			"spawnflags" "0"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-273 -1335 -2854"
+			"spawnflags" "0"
+			"angles" "0 15 0"
+			"targetname" "spawnpoint_04"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1222 -4111 572"
+			"filtername" "gotstartup"
+			"targetname" "filter_gotstartgear"
+			"Negated" "1"
+			"combinability" "1"
+			"classname" "filter_activator_name"
+		}
+
+		"add:entity"
+		{
+			"model" "*25"
+			"origin" "-2985 -5608 -4336"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"trapsecret" "0"
+			"combinability" "1"
+			"filtername" "filter_gotstartgear"
+			"classname" "trigger_multiple"
+			"OnTrigger" "!activator,AddOutput,targetname gotstartup,0,-1,1,"
+			"OnTrigger" "relay_startplayersetup,Trigger,,0,-1,1,"
+			"OnTrigger" "mm_player_inputs,RestorePlayer,,0,-1,1,"
+			"OnTrigger" "mm_player_inputs,SwapInventory,,0.01,1,1,SwapInventory"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "0"
+			"targetname" "relay_startplayersetup"
+			"classname" "logic_relay"
+			"OnTrigger" "!activator,AddOutput,targetname gotstartup,0,-1,1,"
+			"OnTrigger" "mm_player_inputs,GiveXanaPower,,2,-1,1,GiveXanaPower"
+			"OnTrigger" "mm_player_inputs,EnableMagic,0,0,-1,1,EnableMagic 0"
+			"OnTrigger" "mm_player_inputs,EnableInventory,0,0,-1,1,EnableInventory 0"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "player.xanaform"
+			}
+			"add:key"
+			{
+				"OnFalse" "relay_startplayersetup,kill,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" 	"trigger_once"
+				"origin" 		"-16 -7064.83 -3640"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" 	"trigger_once"
+				"origin" 		"-471 -2851 -3808"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" 	"trigger_once"
+				"origin" 		"-2304 520 -2616"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" 	"trigger_once"
+				"origin" 		"-1872 -1116 -2786.48"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_03,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_04,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+	}	
+}

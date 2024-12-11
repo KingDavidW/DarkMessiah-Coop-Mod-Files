@@ -1,0 +1,133 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"1165 339.496 1565"
+			"angles"	"0 33.5 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"876 -2427 436"
+			"angles"	"0 0 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+	
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"1405 -1335 40"
+			"angles"	"0 90 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "trigger_once"
+				"origin"	"1408 204 -256"
+			}
+			"remove:key"
+			{
+				"OnStartTouch" 	"door05.door,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "point_teleport.kick_undead"
+			}
+			"modify:key"
+			{
+				"target_key" 	"classname"
+				"new_value" 	"info_player_teleport"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "tuto_kick_undead.npc_undead.trigger2"
+			}
+			"modify:key"
+			{
+				"target_key" 	"classname"
+				"new_value" 	"trigger_teleport"
+			}
+			"remove:key"
+			{
+				"OnStartTouch" "teleport.fade_in,Fade,,0,-1,1,"
+				"OnStartTouch" "teleport.fade_out,Fade,,1,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin"			"1424 -2223 182"
+			"targetname"        "weapon_sword_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_sword"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_sword"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_sword_template,ForceSpawn,,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "trigger_once"
+				"origin"	"876 -2427 436"
+			}	
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "trigger_once"
+				"origin"	"1408 -1460 127"
+			}	
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_01,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+	}
+}

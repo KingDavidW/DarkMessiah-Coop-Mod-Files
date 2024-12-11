@@ -1,0 +1,84 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-4815 -10825 305"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-3040 -13035 45"
+			"angles"			"0 35 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-3575 -10875 105"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"npc_Leanna"
+			}
+
+			"remove:key"
+			{
+				"OnDeath" "mission_fail_relay,Trigger,,0,-1,1,"
+				"OnDamagedByPlayer" "leanna_hate_load,Reload,,0,-1,1,**************************Leanna damaged by player"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"tim"
+			}
+
+			"add:key"
+			{
+				"OnDeath" "spawnpoint_00,kill,,0,-1,1,"
+				"OnDeath" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-3492 -10892 159"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+	}
+}

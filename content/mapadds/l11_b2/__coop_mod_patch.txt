@@ -1,0 +1,298 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "9733 -3297 260"
+			"spawnflags" "1"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "7770 -2470 675"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"info_landmark_L11_B1_B2"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"7856 -2376 661"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7440 -2469.5 673.15"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7411 -2553 673.15"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7312 -1736 673.15"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7520 -1752 673.15"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7568 -690 553"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"9010 -2076 776"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"7356 -526 514"
+			}
+
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Percy"
+			}
+
+			"remove:key"
+			{
+				"OnFoundPlayer" "Game_Over.IsPlayerInXana,Test,,0,-1,1,"
+				"OnChangeRelationFromLiToha" "Game_Over.IsPlayerInXana,Test,,0,-1,1,"
+				"OnFirstSeenPlayerAsEnemy" "Game_Over.IsPlayerInXana,Test,,0,-1,1,Percy OnChangeRelationFromLiToha"
+			}
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"9072 -3552 -96"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"7360 -292 674"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "room05.grid.door,SetPosition,0,0.01,-1,1,"
+				"OnStartTouch" "room05.grid.lever,Kill,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "room05.grid.lever"
+			}
+
+			"modify:key"
+			{
+				"target_key" "spawnflags"
+				"new_value" "3136"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"func_door_rotating"
+				"origin"	"7532.5 -1575 716"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "!self,Lock,,0.1,-1,1,"
+				"OnBlockedOpening" "!self,Unlock,,0,-1,1,"
+				"OnFullyOpen" "!self,Unlock,,1,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"func_door_rotating"
+				"origin"	"7760 -1030 716"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "!self,Lock,,0.1,-1,1,"
+				"OnBlockedOpening" "!self,Unlock,,0,-1,1,"
+				"OnFullyOpen" "!self,Unlock,,1,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"func_door_rotating"
+				"origin"	"9631 -3043.5 328"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "!self,Lock,,0.1,-1,1,"
+				"OnBlockedOpening" "!self,Unlock,,0,-1,1,"
+				"OnFullyOpen" "!self,Unlock,,1,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "Percy.SequenceF.trigger"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "Percy.SequenceF,CancelSequence,,0,-1,1,"
+			}
+		}		
+
+	}	
+}

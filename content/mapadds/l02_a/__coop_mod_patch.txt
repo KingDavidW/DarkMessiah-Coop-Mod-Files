@@ -1,0 +1,263 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"2181 -3972 -13"
+			"angles"			"0 45 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"2600 -1445 -452"
+			"angles"			"0 0 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Gestion_dead_reload"
+			}
+		}
+
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin" "2411.77 -3674 -113"
+			"targetname"        "weapon_staff_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_staff"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_staff"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_staff_template,ForceSpawn,,0,1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin" "2397.77 -3646.71 -107"
+			"targetname"        "weapon_arxbow_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_arxbow"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_arxbow"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_arxbow_template,ForceSpawn,,0,1,1,"
+			}
+		}		
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin" 			"2394 -3803 -341"
+			"targetname"        "weapon_shield_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_shield"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_shield"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_shield_template,ForceSpawn,,0,1,1,"
+			}
+		}		
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin" 			"2365.44 -3890.39 -330"
+			"targetname"        "weapon_sword_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_sword"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_sword"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_sword_template,ForceSpawn,,0,1,1,"
+			}
+		}		
+
+		"add:entity"
+		{
+			"classname"			"point_template"
+			"origin" 			"2380 -3711 -343"
+			"targetname"        "weapon_dagger_template"
+			"spawnflags" 		"3"
+			"Template01" 		"weapon_dagger"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "weapon_dagger"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "weapon_dagger_template,ForceSpawn,,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "trigger_look_leanna"
+			}
+			"remove:key"
+			{
+				"OnTrigger" 	"no_move,Start,,0,-1,1,"
+				"OnTrigger" 	"first_objective,CinematicBegin,,0,-1,1,"
+				"OnTrigger" 	"first_objective,CinematicEnd,,40,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "npc_Leanna"
+			}
+
+			"add:key"
+			{
+				"damagefilter" 		"noplydmg"
+			}
+
+			"remove:key"
+			{
+				"OnDamagedByPlayer" 	"Gestion_dead_reload,Reload,,0,-1,1,"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "sareth_door_close"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "Portculis_menelag2,Close,,0,-1,1,"
+				"OnStartTouch" "brush_sareth_end,Enable,,0,-1,1,"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "Portculis_menelag,Open,,6,-1,1,"
+				"OnStartTouch" "first_objective,ObjectiveDone,obj_l2_primary1b,2,-1,1,"
+				"OnStartTouch" "ZIC_MeetLeanna_Menelag,StopSound,,3,-1,1,"
+				"OnStartTouch" "change_level,Enable,,6.5,-1,1,"
+			}
+
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"  "2726 -1394.5 -306.5"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"				
+			}
+		}	
+
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Gestion_relationship"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "ai_relationship_required_guard,ApplyRelationship,,0.1,-1,1,"
+				"OnTrigger" "logic_autosave,kill,,0,-1,1,"		
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "2284 -3791 -124"
+			"targetname" "ai_relationship_required_guard"
+			"target" "!player"
+			"subject" "bertram_01"
+			"Reciprocal" "0"
+			"StartActive" "0"
+			"rank" "0"
+			"radius" "0"
+			"disposition" "3"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "ai_relationship"
+		}
+
+		"add:entity"
+		{
+			"origin" "2284 -3791 -124"
+			"targetname" "ai_relationship_required_guard"
+			"target" "!player"
+			"subject" "bertram_02"
+			"Reciprocal" "0"
+			"StartActive" "0"
+			"rank" "0"
+			"radius" "0"
+			"disposition" "3"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "ai_relationship"
+		}
+
+	}
+}

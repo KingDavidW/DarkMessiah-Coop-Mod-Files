@@ -1,0 +1,222 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "12 2310 513"
+			"spawnflags" "1"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-413 4750 805"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-260 3065 1160"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "490 3070 -60"
+			"spawnflags" "0"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1150 4835 -3085"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_04"
+			"parentname" "elevator_lair"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "0"
+			"classname" "logic_auto"
+			"OnMapSpawn" "global_transitionfrom_10c,TurnOn,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags "0"
+			"targetname" "global_transitionfrom_10c"
+			"initialstate" "0"
+			"globalstate" "transitionback_from_10c"
+			"classname" "env_global"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"game_over"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"MAP_AB_02"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1040 3040 -400"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1024 3056 456"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1024 3056 456"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}	
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "Room33.door.01.lever.button"
+			}
+			"add:key"
+			{
+				"OnPressed" "spawnpoint_01,kill,,0,1,1,"
+				"OnPressed" "spawnpoint_02,AddOutput,spawnflags 1,0,1,1,"			
+			}	
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"760 4656 -3360"
+			}
+			"remove:key"
+			{
+				"OnTrigger" "player_in_elevator.trigger,Enable,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "leanna_cocoon.trigger"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "player_in_elevator.trigger,Enable,,0,1,1,"			
+			}	
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"452 3072 44"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}	
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "Room37.door.38.lever.button"
+			}
+			"add:key"
+			{
+				"OnPressed" "spawnpoint_03,kill,,0,1,1,"
+				"OnPressed" "spawnpoint_04,AddOutput,spawnflags 1,0,1,1,"			
+			}	
+		}
+
+	}	
+}

@@ -1,0 +1,179 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-1730.78 3210.01 -1655"
+			"spawnflags" "1"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-680 4375 -1045"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "5 4060 -1625"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-495 5080 -1970"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-495 5080 -1970"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "teleport_players_00_target"
+			"classname" "info_teleport_destination"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"L12_A_LANDMARK"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-780 4579.03 -895.27"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"piege_02_start"
+			}
+
+			"remove:key"
+			{
+				"OnTrigger" "piege_02_porte1,Open,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"funcBut_BB"
+			}
+
+			"remove:key"
+			{
+				"OnPressed" "door_invisible,Toggle,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"150 4086 -1496"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "jeremy_burning,CloseCrush,,0,-1,1,"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_01,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-496 6740 -1836"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "L12_C_gate1_door2,Close,,0,1,1,"
+				"OnStartTouch" "L12_C_gate1_door1,Close,,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"big_end_door_open"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,5,-1,1"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,5,-1,1"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-496 5064 -1948"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "teleport_players_00,Enable,,0,-1,1,"
+				"OnTrigger" "teleport_players_00,kill,,1,-1,1,"
+			}
+		}
+
+	}	
+}

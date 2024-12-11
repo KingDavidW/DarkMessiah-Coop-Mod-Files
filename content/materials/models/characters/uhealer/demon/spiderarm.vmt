@@ -1,0 +1,5 @@
+VertexLitGeneric
+{
+	$basetexture "models/characters/uhealer/demon/spidertail_DefaultMaterial_BaseColor"
+	$bumpmap "models/characters/uhealer/demon/spidertail_DefaultMaterial_Normal"
+}

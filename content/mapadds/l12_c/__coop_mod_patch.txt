@@ -1,0 +1,229 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-1143.45 5167.35 -3055"
+			"spawnflags" "1"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "345 4220 -3020"
+			"spawnflags" "0"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1360 4775 -3675"
+			"spawnflags" "0"
+			"angles" "0 290 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "2900 4215 -3865"
+			"spawnflags" "0"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"model" "*39"
+			"origin" "2783.5 4216 -3526.5"
+			"spawnflags" "1"
+			"StartDisabled" "0"
+			"classname" "trigger_once"
+			"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+			"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"777 3604 -2862"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"Landmark_L12_B-C"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"8486.31 5107.84 -3948"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"2479 2532 -3836"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"2587 5976 -3836"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"7490.75 4275.65 -3134.5"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"625 4216 -2901.5"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"4262.5 4220 -3822.5"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "areaportal_ziggurat,Close,,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "go_stasis_destroy"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"		
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "leanna"
+			}
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+	}
+}

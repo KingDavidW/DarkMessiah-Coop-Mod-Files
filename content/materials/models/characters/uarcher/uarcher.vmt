@@ -1,0 +1,21 @@
+"vertexlitgeneric"
+{
+	"$model"	"1"
+	"$basetexture" "models/Characters/UArcher/UArcher"
+	"$bumpmap" "models/Characters/UArcher/UArcher_normal"		
+  "$surfaceprop" "flesh"
+  "$normalmapalphaenvmapmask"	"1"
+	"$envmapcontrast" 					"1"
+	"$envmapsaturation"					"1"
+	"$envmaptint"								"[0.8 0.8 0.8]"
+	"$nodecal" 									"1"
+
+
+	"$envmap"										"env_cubemap"
+	"$alphatest"								"0"
+
+	"vertexlitgeneric_HDR_dx9"
+	{
+	"$envmaptint"								"[0.8 0.8 0.8]"
+	}
+}

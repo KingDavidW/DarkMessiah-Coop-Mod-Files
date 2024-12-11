@@ -1,0 +1,166 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"196 209 -342"
+			"angles"			"0 101 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-1183 895 -895"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-915 920 -828"
+			"angles"			"0 70 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"3130 740 -1450"
+			"angles"			"0 10 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"origin" "3460 1088 -1345"
+			"angles" "0 90 0"
+			"target" "!player"
+			"targetname" "teleport_players"
+			"classname" "point_teleport"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"3460 1028 -1300"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark" 	"l03_atob"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" 	"occluder.warehouse"
+			}
+			"modify:key"
+			{
+				"target_key"	"targetname"
+				"new_value"		"occluder.warehousenoclose"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" 	"scene.xana_warning.relay"
+			}
+			"add:key"
+			{
+				"OnTrigger" "teleport_players,Teleport,,0.1,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"l3_transition_trigger"
+			}
+			"remove:key"
+			{
+				"OnTrigger" "l3_transition_fadein,Fade,,0,1,1,"
+				"OnTrigger" "changelvl.toL4_brush,Enable,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"OnTrigger" "villager.can_be_killed,SetValue,0,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-1176 972 -837.5"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-904 952 -816"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"3160 728 -1378"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+	}
+}

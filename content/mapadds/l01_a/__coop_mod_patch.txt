@@ -1,0 +1,425 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"1388.6 -644.985 -11.2139"
+			"angles"			"0 0 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"360 -1900 28"
+			"angles"			"0 130 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"1800 -75 865"
+			"angles"			"0 90 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"1685 330 780"
+			"angles"			"0 90 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-825 1455 750"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_04"
+			"spawnflags"        "0"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "func_brush"
+				"targetname" "Grange_playerclip"
+				"origin"	"1755 -85 904"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "func_brush"
+				"targetname" "PlayerClip.House"
+				"origin"	"1631.75 -599.5 402.5"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "trigger_once"
+				"targetname" "trigger_death"
+				"origin"	"-719 324 91"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "player_loadsaved"
+				"targetname" "player_loadsaved.fallydeath"
+				"origin"	"1744 376 748"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "room07.door.01.lever.button"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"4609"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"-1120.5 -134.5 -211"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1801 135 908.5"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "FireHouse.TopRope.physbox,EnableMotion,,5,-1,1,"
+				"OnStartTouch" "FireHouse.TopRope.hinge,TurnOff,,15.25,-1,1,"
+				"OnStartTouch" "FireHouse.TopRope.clip,Kill,,15,-1,1,"
+				"OnStartTouch" "Grange05,Break,,15,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"	"point_teleport"
+			"origin" "344 -1873 2"
+			"spawnflags" "0"
+			"target" "!player"
+			"angles" "0 180 0"
+			"targetname" "teleport_01"
+		}
+
+		"add:entity"
+		{
+			"classname"	"point_teleport"
+			"origin" "-789 978 721"
+			"spawnflags" "0"
+			"target" "!player"
+			"targetname" "teleport_02"
+			"angles" "0 270 0"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "sequence_guard_call_before_attack"
+			}
+
+			"add:key"
+			{
+				"OnEndSequence" "spawnpoint_00,kill,,0.2,-1,1,"
+				"OnEndSequence" "spawnpoint_01,AddOutput,spawnflags 1,0.2,-1,1,"
+				"OnEndSequence" "teleport_01,Teleport,,0,1,1,"				
+			}
+		}
+
+		"add:entity"
+		{
+			"model" "*32"
+			"associated_env_shooter" "Baliste270_2_shooter_arrow"
+			"associated_model" "Baliste270_2_propNOSE"
+			"LeadTarget" "No"
+			"combinability" "1"
+			"origin" "-1132.5 852.5 749"
+			"persistence2" "0"
+			"disablereceiveshadows" "0"
+			"disableshadows" "0"
+			"playergraceperiod" "1.5"
+			"ignoregraceupto" "768"
+			"bullet_damage_vs_player" "5"
+			"control_volume" "Baliste270_2_control_volume"
+			"ammo_count" "-1"
+			"angles" "0 270 0"
+			"bullet_damage" "26"
+			"targetname" "Baliste270_2"
+			"maxRange" "1536"
+			"minRange" "0"
+			"barrelz" "8"
+			"barrely" "0"
+			"rendercolor" "255 255 255"
+			"rendermode" "0"
+			"renderfx" "0"
+			"firespread" "1"
+			"persistence" "3"
+			"firerate" "1"
+			"spritescale" "1"
+			"barrel" "31"
+			"pitchtolerance" "15"
+			"pitchrange" "35"
+			"pitchrate" "120"
+			"yawtolerance" "15"
+			"yawrange" "40"
+			"yawrate" "200"
+			"renderamt" "255"
+			"spawnflags" "1312"
+			"classname" "func_tank"
+			"OnGotPlayerController" "Baliste270_2_Zoom,Zoom,,0,-1,1,"
+			"OnLostPlayerController" "Baliste270_2_Zoom,UnZoom,,0,-1,1,"
+			"OnFire" "Baliste270_2_shooter_arrow,Shoot,,0,-1,1,"
+			"OnGotPlayerController" "Baliste270_2_Viewcontrol,Enable,,0,-1,1,"
+			"OnLostPlayerController" "Baliste270_2_Viewcontrol,Disable,,0,-1,1,"
+			"OnLostPlayerController" "Baliste270_2_propNOSE,Enable,,0,-1,1,"
+			"OnLostPlayerController" "PlayerInBalista,SetValue,0,0,-1,1,"
+			"OnGotPlayerController" "boulet_relai_5,Trigger,,1,-1,1,"
+			"OnGotPlayerController" "eboulis_ballistawall_xplode_logic5,Enable,,0,-1,1,"
+			"OnGotPlayerController" "boulet_relai_1,Trigger,,0,-1,1,"
+			"OnGotPlayerController" "PlayerInBalista,SetValue,1,0,-1,1,"
+			"OnGotPlayerController" "Balista_TakeControlForFirstTime,Trigger,,0,1,1,"
+			"OnGotPlayerController" "Balista_enter_snd,PlaySound,,0,-1,1,"
+			"OnLostPlayerController" "Balista_exit_snd,PlaySound,,0,-1,1,"
+			"OnFire" "Balista_fire_snd,PlaySound,,0,-1,1,"
+			"OnGotPlayerController" "Baliste270_2.player_teleport,Teleport,,0,-1,1,"
+			"OnLostPlayerController" "Baliste270_2.player_teleport,Teleport,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1134.061 822.25 712"
+			"parentname" "Baliste270_2"
+			"StartDisabled" "0"
+			"SetBodyGroup" "0"
+			"MaxAnimTime" "10"
+			"MinAnimTime" "5"
+			"RandomAnimation" "0"
+			"solid" "0"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"combinetarget10enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget6enable" "1"
+			"targetname" "Baliste270_2_propNOSE"
+			"spawnflags" "0"
+			"model" "models/props/tools/humans/balistanose.mdl"
+			"fadescale" "1"
+			"fademaxdist" "1800"
+			"fademindist" "1600"
+			"maxdxlevel" "0"
+			"mindxlevel" "0"
+			"pressuredelay" "0"
+			"PerformanceMode" "0"
+			"ExplodeRadius" "0"
+			"ExplodeDamage" "0"
+			"combinetarget5enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget1enable" "1"
+			"disableshadows" "0"
+			"skin" "0"
+			"trapsecret" "0"
+			"combinability" "1"
+			"angles" "0 180 0"
+			"classname" "prop_dynamic"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1134.061 844.25 712"
+			"forcetoenablemotion" "0"
+			"damagetoenablemotion" "0"
+			"massScale" "0"
+			"inertiaScale" "1.0"
+			"nodamageforces" "0"
+			"Damagetype" "0"
+			"physdamagescale" "0.1"
+			"shadowcastdist" "0"
+			"UseSpeedToCalculateSoundVolume" "1"
+			"combinetarget10enable" "1"
+			"combinetarget9enable" "1"
+			"combinetarget8enable" "1"
+			"combinetarget7enable" "1"
+			"combinetarget6enable" "1"
+			"targetname" "Baliste270_2_propnodisable"
+			"spawnflags" "520"
+			"model" "models/props/tools/humans/balista02_axis.mdl"
+			"fadescale" "1"
+			"fademaxdist" "1800"
+			"fademindist" "1600"
+			"maxdxlevel" "0"
+			"mindxlevel" "0"
+			"pressuredelay" "0"
+			"PerformanceMode" "0"
+			"ExplodeRadius" "0"
+			"ExplodeDamage" "0"
+			"combinetarget5enable" "1"
+			"combinetarget4enable" "1"
+			"combinetarget3enable" "1"
+			"combinetarget2enable" "1"
+			"combinetarget1enable" "1"
+			"disableshadows" "0"
+			"skin" "0"
+			"trapsecret" "0"
+			"combinability" "1"
+			"angles" "0 180 0"
+			"classname" "prop_physics"
+			"id" "3753075"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1133.651 844.5 782"
+			"parentname" "Baliste270_2"
+			"targetname" "Baliste270_2_Viewcontrol"
+			"spawnflags" "72"
+			"deceleration" "500"
+			"acceleration" "500"
+			"speed" "0"
+			"wait" "10"
+			"trapsecret" "0"
+			"combinability" "1"
+			"angles" "0 270 0"
+			"classname" "point_viewcontrol"
+		}		
+
+		"add:entity"
+		{
+			"origin" "-1133.651 881.5 777"
+			"parentname" "Baliste270_2"
+			"spawnflags" "1"
+			"targetname" "Baliste270_2_shooter_arrow"
+			"Arrow_Type" "3"
+			"trapsecret" "0"
+			"combinability" "1"
+			"angles" "0 270 0"
+			"classname" "env_shooter_arrow"
+			"id" "3753081"
+		}	
+
+		"add:entity"
+		{
+			"origin" "-868 859 800"
+			"spawnflags" "0"
+			"targetname" "Baliste270_2_Zoom"
+			"FOV" "64"
+			"Rate" "0.5"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "env_zoom"
+		}	
+
+		"add:entity"
+		{
+			"model" "*33"
+			"targetname" "Baliste270_2_control_volume"
+			"combinability" "1"
+			"origin" "-1122.79 930 753.43"
+			"spawnflags" "1"
+			"wait" "1"
+			"StartDisabled" "0"
+			"classname" "trigger_multiple"
+			"OnStartTouch" "timer_boulet_in_ze_sky,Enable,,0,-1,1,"
+			"OnEndTouch" "timer_boulet_in_ze_sky,Disable,,0,-1,1,"
+		}	
+
+		"add:entity"
+		{
+			"origin" "-1134 978 721"
+			"spawnflags" "0"
+			"target" "!activator"
+			"targetname" "Baliste270_2.player_teleport"
+			"angles" "0 270 0"
+			"combinability" "1"
+			"classname" "point_teleport"
+			"id" "4845854"
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"id" "2722783"
+			}
+
+			"add:key"
+			{
+				"OnMapSpawn" "Baliste270_2_propNOSE,Enable,,1,1"	
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "Cyclope_Death.BackInRoom"	
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "teleport_02,Teleport,,0,-1,1,"
+				"OnTrigger" "Baliste270_1,ForceNPCOff,,0,-1,1,"
+				"OnTrigger" "Baliste270_2,ForceNPCOff,,0,-1,1,"			
+			}
+		}
+	}
+}

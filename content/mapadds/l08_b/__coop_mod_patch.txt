@@ -1,0 +1,136 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "325.12 -251.091 505"
+			"spawnflags" "1"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1923 889 -705"
+			"spawnflags" "0"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"model" "*25"
+			"targetname" "teleport_to_lich"
+			"origin" "657 562 -490"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_to_lich_destination"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*25"
+			"targetname" "teleport_to_lich"
+			"origin" "-587 562 -490"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_to_lich_destination"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*25"
+			"targetname" "teleport_to_lich"
+			"origin" "885 572 -732"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_to_lich_destination"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*25"
+			"targetname" "teleport_to_lich"
+			"origin" "2138 1801 -732"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_to_lich_destination"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"origin" "1923 889 -705"
+			"angles" "0 270 0"
+			"targetname" "teleport_to_lich_destination"
+			"classname" "info_teleport_destination"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"from_l8_a"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"887 406 -581"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"2045 966.5 -612"
+			}
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"2050 -148.5 -491.5"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+				"OnTrigger" "teleport_to_lich,Enable,,0,1,1,"
+				"OnTrigger" "global_transitionfrom_8b,TurnOn,,0,1,1,"
+			}
+		}
+
+	}	
+}

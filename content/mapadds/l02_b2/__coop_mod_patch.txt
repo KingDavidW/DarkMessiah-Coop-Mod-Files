@@ -1,0 +1,107 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-3575 -11195 -125"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-3142 -11695 -50"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"model" "*24"
+			"spawnflags" "1"
+			"origin" "-3474 -12171 109"
+			"classname" "trigger_once"
+			"OnStartTouch" "kitchen_door_big1,Unlock,,0,-1,1,"
+			"OnStartTouch" "kitchen_door_big2,Unlock,,0,-1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"b1toB2bis"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"add:entity"
+		{
+			"targetname" "kitchendoorclose"
+			"classname" "logic_relay"
+			"OnTrigger" "kitchen_door_big1,Close,,0,-1,1,"
+			"OnTrigger" "kitchen_door_big2,Close,,0,-1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"kitchen_door_big1"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "kitchen_door_big2,Open,,0,-1,1,"
+				"OnClose" "kitchendoorclose,Trigger,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"kitchen_door_big2"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "kitchen_door_big1,Open,,0,-1,1,"
+				"OnClose" "kitchendoorclose,Trigger,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"kitchen_out_door"
+			}
+
+			"add:key"
+			{
+				"OnOpen" "spawnpoint_00,kill,,0,-1,1,"
+				"OnOpen" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+	}
+}

@@ -1,0 +1,66 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"1071 -1689 214"
+			"angles"	"0 0 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"1375 -4380 540"
+			"angles"	"0 250 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"player_loadsaved"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "TRIGG_player_Load_Save"
+			}
+			"modify:key"
+			{
+				"target_key" "classname"
+				"new_key" "trigger_multiple "			
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "TRIGG_conditionsGOB_chat1ON"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,1,1,"			
+			}
+		}
+
+	}
+}

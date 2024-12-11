@@ -1,0 +1,101 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"2016 1184.01 -24"
+			"angles"			"0 180 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"680 1955 -80"
+			"angles"			"0 260 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-252 -3872 -10"
+			"angles"			"0 190 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-1040 2765 165"
+			"angles"			"0 270 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"-1017 3205 173.5"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"672 1937.5 -76"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-252 3872 9"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-1014.5 2775 219"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+	}
+}

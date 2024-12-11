@@ -1,0 +1,199 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "504 -918 -1070"
+			"spawnflags" "1"
+			"angles" "0 91 0"
+			"targetname" "spawnpoint_00"
+			"parentname" "boat"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-530 4275 -820"
+			"spawnflags" "0"
+			"angles" "0 30 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "780 8350 -685"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1045 8850 -333"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"model" "*78"
+			"origin" "808 8434.5 -491"
+			"spawnflags" "1"
+			"StartDisabled" "0"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "trigger_multiple"
+			"OnStartTouch" "!activator,IgnoreFallDamage,10,0,-1,1,"
+			"OnStartTouch" "spawnpoint_01,kill,,0,1,1,"
+			"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,1,1,"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-200 3400 -300"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-441 3872 -640"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"npc_Leanna"
+			}
+			"remove:key"
+			{
+				"OnFoundPlayer" "leanna_hate_you,Reload,,0,-1,1,"
+				"OnFoundPlayer" "kill_vcd,Trigger,,0,-1,1,"
+				"OnFoundPlayer" "logic_autosave,Disable,,0,-1,1,"			
+			}
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"npc_wizard"
+			}
+			"remove:key"
+			{
+				"OnFoundPlayer" "leanna_hate_you,Reload,,0,-1,1,"
+				"OnFoundPlayer" "kill_vcd,Trigger,,0,-1,1,"
+				"OnFoundPlayer" "logic_autosave,Disable,,0,-1,1,"			
+			}
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"npc_human_guard"
+			}
+			"remove:key"
+			{
+				"OnDamagedByPlayer" "Duncan_hate_you,Reload,,0,-1,1,OnDamagedByPlayer"			
+				"OnDamagedByPlayer" "wizard_domage_player,Trigger,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-348 4416 -793.5"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-1040 9641 -153"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-5057.85 -10988 101.253"
+			"Template01" "ropebow"
+			"targetname" "ropebow_template"
+			"spawnflags" "3"
+			"combinability" "1"
+			"classname" "point_template"
+		}
+
+		"add:entity"
+		{
+			"origin" "635.543 8118.03 -946.326"
+			"spawnflags" "6"
+			"targetname" "ropebow"
+			"removefrominventoryonlongload" "0"
+			"trapsecret" "0"
+			"combinability" "1"
+			"angles" "0 105 -90"
+			"classname" "weapon_arxcrossbowrope"
+			"OnPlayerPickup" "ropebow_template,ForceSpawn,,0,-1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"rope_bow"
+			}
+			"add:key"
+			{
+				"OnPlayerPickup" "ropebow_template,ForceSpawn,,0,-1,1,"			
+			}
+		}
+
+	}
+}

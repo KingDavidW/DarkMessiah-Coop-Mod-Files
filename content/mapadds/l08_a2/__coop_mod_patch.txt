@@ -1,0 +1,103 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-1815 1643 -599"
+			"spawnflags" "1"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1755 450 -1422"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"-2760 2056 -1756"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"L08_A1toL08_A2_1"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"			"funcBut_Bc"
+			}
+
+			"add:key"
+			{
+				"OnUseLocked" "NeedGem,Display,,0,-1,1,"
+				"OnPressed" "NeedGem,Kill,,0.1,-1,1,"
+				"OnPressed" "spawnpoint_00,kill,,0,-1,1,"
+				"OnPressed" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-170 -611 -499"
+			"message" "You need to get The Maidens Eye upstairs"
+			"targetname" "NeedGem"
+			"channel" "1"
+			"fxtime" "0.25"
+			"holdtime" "1.2"
+			"fadeout" "0.5"
+			"fadein" "1.5"
+			"color2" "240 110 0"
+			"color" "100 100 100"
+			"effect" "0"
+			"y" "-1"
+			"x" "-1"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "game_text"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"gem3"
+			}
+
+			"add:key"
+			{
+				"OnAddedToInventory" "NeedGem,kill,,0,1,1,"
+			}
+		}
+
+	}	
+}

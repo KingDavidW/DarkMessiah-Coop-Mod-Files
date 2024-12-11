@@ -1,0 +1,118 @@
+// NOTE:  THIS FILE IS AUTOMATICALLY REGENERATED, 
+//DO NOT EDIT THIS HEADER, YOUR COMMENTS WILL BE LOST IF YOU DO
+// Multiplayer options script
+//
+// Format:
+//  Version [float]
+//  Options description followed by 
+//  Options defaults
+//
+// Option description syntax:
+//
+//  "cvar" { "Prompt" { type [ type info ] } { default } }
+//
+//  type = 
+//   BOOL   (a yes/no toggle)
+//   STRING
+//   NUMBER
+//   LIST
+//
+// type info:
+// BOOL                 no type info
+// NUMBER       min max range, use -1 -1 for no limits
+// STRING       no type info
+// LIST          delimited list of options value pairs
+//
+//
+// default depends on type
+// BOOL is "0" or "1"
+// NUMBER is "value"
+// STRING is "value"
+// LIST is "index", where index "0" is the first element of the list
+
+
+// Might and Magic Server Configuration Layout Script (stores last settings chosen, too)
+// File generated:  Thu Jun 06 07:20:30 PM
+//
+//
+// Cvar	-	Setting
+
+VERSION 1.0
+
+DESCRIPTION SERVER_OPTIONS
+{
+	"hostname"
+	{
+		"#GameUI_ServerName"
+		{ STRING }
+		{ "wiltOS Test Server" }
+	}
+
+	"sv_password"
+	{
+		"#GameUI_Password"
+		{ STRING }
+		{ "" }
+	}
+
+	"maxplayers"
+	{
+		"#GameUI_MaxPlayers"
+		{ NUMBER 1 32 }
+		{ "32" }
+	}
+
+	"hostport"
+	{
+		"Port:"
+		{ NUMBER 27015 27200 }
+		{ "27015" }
+	}
+
+	"mp_friendlyfire"
+	{
+		"Friendly Fire"
+		{
+			LIST
+			"#GameUI_Disabled" "0"
+			"#GameUI_Enabled" "1"
+		}
+		{ "0" }
+	}
+
+	"mm_game_easy_difficulty"
+	{
+		"Difficulty"
+		{
+			LIST
+			"Normal" "0"
+			"Hard" "1"
+		}
+		{ "0" }
+	}
+
+	"mm_game_hard_difficulty"
+	{
+		"Hardcore Mode"
+		{
+			LIST
+			"#GameUI_Disabled" "0"
+			"#GameUI_Enabled" "1"
+		}
+		{ "0" }
+	}
+
+	"mm_start_as_class"
+	{
+		"Start with equipment base:"
+		{
+			LIST
+			"None" "0"
+			"Warrior" "1"
+			"Wizard" "1"
+			"Assassin" "1"
+		}
+		{ "1" }
+	}
+
+}

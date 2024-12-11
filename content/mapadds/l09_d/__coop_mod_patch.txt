@@ -1,0 +1,134 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "5653 -654 1350"
+			"spawnflags" "1"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1895 -322 1900"
+			"spawnflags" "0"
+			"angles" "0 230 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"origin"	"2935.5 -338.5 1758.5"
+				"classname"	"trigger_multiple"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"player_in_xana"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"landmark_L06_A_L09_D"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"2055 -363 1992"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"npc_wizard"
+			}	
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+
+			"remove:key"
+			{
+				"OnFoundPlayer" "trigger_player_beach,Disable,,2,-1,1,"
+				"OnFoundPlayer" "game_over,Reload,,2,-1,1,"
+				"OnFoundPlayer" "wizard_attack_player,StartSchedule,,0,-1,1,"
+				"OnFoundPlayer" "relay.goboat,Disable,,0,-1,1,"
+				"OnDamagedByPlayer" "game_over,Reload,,2,-1,1,"
+				"OnDamagedByPlayer" "trigger_player_beach,Disable,,2,-1,1,"
+				"OnDamagedByPlayer" "relay.goboat,Disable,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"npc_human_guard"
+			}	
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+
+			"remove:key"
+			{
+				"OnDamagedByPlayer" "game_over,Reload,,2,-1,1,"
+				"OnDamagedByPlayer" "trigger_player_beach,Disable,,2,-1,1,"
+				"OnDamagedByPlayer" "relay.goboat,Disable,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "scene.xana_beach01"
+			}
+
+			"remove:key"
+			{
+				"OnStart" "mm_player_inputs,AddSecondaryObjective,l9_objective_xana_form,0,-1,1,"			
+			}
+		}
+
+	}	
+}

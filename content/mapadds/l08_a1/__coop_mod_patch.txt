@@ -1,0 +1,346 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "1383 258 -192"
+			"spawnflags" "1"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "930 -572 -695"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "215 -772 -482"
+			"spawnflags" "0"
+			"angles" "0 135 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1778 625 -1490"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_00_from8b"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags "0"
+			"targetname" "global_transitionfrom_8b"
+			"initialstate" "0"
+			"globalstate" "transitionback_from_8b"
+			"classname" "env_global"
+		}
+
+		"add:entity"
+		{
+			"origin" "1139.07 4687.8 353"
+			"globalstate" "transitionback_from_8b"
+			"spawnflags" "1"
+			"classname" "logic_auto"
+			"OnMapSpawn" "spawnpoint_00,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_01,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_00_from8b,AddOutput,spawnflags 1,0,-1,1,"
+			"OnMapSpawn" "teleport_spawnfrom8b,Enable,,0,-1,1,"
+			"OnMapSpawn" "trigger_givegem2,Enable,,0,1,1,"
+		}
+
+		"add:entity"
+		{
+			"model" "*161"
+			"targetname" "trigger_givegem2"
+			"origin" "-1778 625 -1490"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"trapsecret" "0"
+			"combinability" "1"
+			"filtername" "filter_gotgem"
+			"classname" "trigger_multiple"
+			"OnTrigger" "!activator,AddOutput,targetname gotgem2,0,1,0,"
+			"OnTrigger" "gem_seated_objectives,GiveItem,gem2,0,1,0,"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1778 625 -1490"
+			"filtername" "gotgem2"
+			"targetname" "filter_gotgem"
+			"Negated" "1"
+			"combinability" "1"
+			"classname" "filter_activator_name"
+		}
+
+		"add:entity"
+		{
+			"model" "*126"
+			"targetname" "teleport_spawnfrom8b"
+			"origin" "1383 258 -192"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_to_8b"
+			"classname" "trigger_teleport"
+			"OnStartTouch" "!self,kill,,5,1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1778 625 -1490"
+			"angles" "0 180 0"
+			"targetname" "teleport_to_8b"
+			"classname" "info_teleport_destination"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"info_landmark_to_L08"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"lich_climb"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"			"gem1"
+			}
+			"add:key"
+			{
+				"OnCombine1" "tick_off_inscription_obj,RemoveFromInventory,gem1,0.1,1,1,"
+				"OnCombine1" "gem1pt,kill,,0.1,1,1,"
+				"OnAddedToInventory" "gem1pt,ForceSpawn,,0,1,1,"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"			"gem2"
+			}
+			"add:key"
+			{
+				"OnCombine1" "tick_off_inscription_obj,RemoveFromInventory,gem2,0.1,1,1,"
+				"OnCombine1" "trigger_givegem2,kill,,0,-1,1,"
+				"OnCombine1" "spawnpoint_00_from8b,kill,,0,-1,1,"
+				"OnCombine1" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"			"gem3"
+			}
+			"add:key"
+			{
+				"OnCombine1" "tick_off_inscription_obj,RemoveFromInventory,gem3,0.1,1,1,"
+				"OnCombine1" "gem3pt,kill,,0.1,1,1,"
+				"OnAddedToInventory" "gem3pt,ForceSpawn,,0,1,1,"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"			"gem4"
+			}
+			"add:key"
+			{
+				"OnCombine1" "gem4pt,kill,,0.1,1,1,"
+				"OnCombine1" "spawnpoint_01,kill,,0,-1,1,"
+				"OnCombine1" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+				"OnAddedToInventory" "gem4pt,ForceSpawn,,0,1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"Template01" "gem1"
+			"targetname" "gem1pt"
+			"spawnflags" "3"
+			"combinability" "1"
+			"classname" "point_template"			
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"Template01" "gem2"
+			"targetname" "gem2pt"
+			"spawnflags" "3"
+			"combinability" "1"
+			"classname" "point_template"			
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"Template01" "gem3"
+			"targetname" "gem3pt"
+			"spawnflags" "3"
+			"combinability" "1"
+			"classname" "point_template"			
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"Template01" "gem4"
+			"targetname" "gem4pt"
+			"spawnflags" "3"
+			"combinability" "1"
+			"classname" "point_template"			
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"-2524.08 -783 -3195.5"
+			}
+
+			"modify:key"
+			{
+				"target_key" "classname"
+				"new_value"	 "trigger_hurt"
+			}
+
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damage" "999"
+				"damagetype" "32"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"funcBut_Aq"
+			}
+
+			"remove:key"
+			{
+				"OnPressed" "funcBut_Aq,Unlock,,4,-1,1,"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"wait"
+				"new_value"		"-1"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"funcBut_Ac"
+			}
+
+			"remove:key"
+			{
+				"OnPressed" "funcBut_Aq,Unlock,,4,-1,1,"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"wait"
+				"new_value"		"-1"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Master_Trigger"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"gem_logic_cases"
+			}
+
+			"add:key"
+			{
+				"OnCase02" "outof_vision,Teleport,,0.1,-1,1,"			
+				"OnCase03" "outof_vision,Teleport,,0.1,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"-2524.08 -783 -3195.5"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "Queens_door,CloseCrush,,0.1,-1,1,"
+				"OnStartTouch" "Queens_door,SetSpeed,25,0,-1,1,"
+			}
+		}
+
+	}	
+}

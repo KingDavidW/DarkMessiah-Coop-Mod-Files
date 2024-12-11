@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$baseTexture"	"models/Characters/UKnight/UK_Arm_Hand"
+	"$surfaceprop" "flesh"
+	"$bumpmap" "models/Characters/UKnight/UK_Arm_Hand_normal"
+}

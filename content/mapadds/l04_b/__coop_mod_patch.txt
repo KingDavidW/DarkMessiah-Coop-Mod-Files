@@ -1,0 +1,399 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"2196 -4656 -1503"
+			"angles"			"0 180 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"1025 -4182 -1416"
+			"angles"			"0 150 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-1333 -4155 -1404"
+			"angles"			"0 250 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-1690 -4200 -1550"
+			"angles"			"0 90 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-1725 -2285 -1550"
+			"angles"			"0 0 0"
+			"targetname"		"spawnpoint_04"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"--1942 -3473 -1264"
+			"angles"			"0 0 0"
+			"targetname"		"spawnpoint_05"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1350 -2260 -1136"
+			"target" "!player"
+			"angles" "0 0 0"
+			"targetname" "teleport_players_end"
+			"classname" "point_teleport"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"math_counter"
+				"targetname"	"end"
+			}
+			"add:key"
+			{
+				"OnHitMax" "teleport_players_end,Teleport,,1.1,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"npc_Leanna"
+			}
+			"remove:key"
+			{
+				"OnFoundPlayer" "leanna_hate,Reload,,0,-1,1,"
+				"OnDamagedByPlayer" "logic_relay_leanna,Trigger,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"R49A_wizard_Kojak"
+			}
+			"remove:key"
+			{
+				"OnFoundPlayer" "leanna_hate,Reload,,0,-1,1,"
+				"OnDamagedByPlayer" "logic_relay_leanna,Trigger,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"fermeture_caisse"
+			}
+			"remove:key"
+			{
+				"OnTrigger" "door_leanna_intro,Close,,1,-1,1,"
+				"OnTrigger" "Anti_retour_player_intro,Enable,,0,-1,1,"			
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"disable_rush01"
+			}
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"R12_necroGuardPatrol_02"
+			}
+			"add:key"
+			{
+				"OnDeath" "spawnpoint_01,kill,,0,-1,1,"
+				"OnDeath" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"R22A_door"
+			}
+			"add:key"
+			{
+				"OnOpen" "spawnpoint_02,kill,,0,-1,1,"
+				"OnOpen" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"R31_trigger_general"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_03,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_04,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-1630 -3527.5 -1254"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_04,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_05,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "1"
+			"classname" "logic_auto"
+			"OnMapSpawn" "Baliste0_1_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste0_1_propnodisable,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste0_2_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste0_2_propnodisable,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste0_3_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste0_3_propnodisable,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_1_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_1_propnodisable,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_2_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_2_propnodisable,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_3_propNOSE,Enable,,0,-1,1,"
+			"OnMapSpawn" "Baliste180_3_propnodisable,Enable,,0,-1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "leanna_good_luck"
+			}
+			"remove:key"
+			{
+				"OnTrigger1" "entity_fx,Activate,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"OnTrigger1" "!self,Cancel,,0,-1,1,"
+				"OnTrigger1" "!self,Kill,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_01"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_02"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_03"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_04"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_05"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "point_teleport_06"
+			}
+			"modify:key"
+			{
+				"target_key"	"target"
+				"new_value"		"!activator"
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"-1536 -3008 -1904"
+			}
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"targetname"		"r49_trig_ballistes_vs_player"
+			}
+			"modify:key"
+			{
+				"target_key" "OnEndTouch"
+				"new_key" "OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"porte_close_03"
+			}
+			"add:key"
+			{
+				"OnOpen" "r49_trig_ballistes_vs_player,kill,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_TIMER_Shoot,Disable,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_CLOSE,Trigger,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_stopTARGET,Trigger,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"R31_35_door"
+			}
+			"add:key"
+			{
+				"OnOpen" "r49_trig_ballistes_vs_player,kill,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_TIMER_Shoot,Disable,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_CLOSE,Trigger,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_stopTARGET,Trigger,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"porte_close_01"
+			}
+			"add:key"
+			{
+				"OnOpen" "r49_trig_ballistes_vs_player,kill,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_TIMER_Shoot,Disable,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_CLOSE,Trigger,,0,-1,1,"
+				"OnOpen" "r49Bal_vs_player_stopTARGET,Trigger,,0,-1,1,"
+			}
+		}	
+
+	}
+}

@@ -1,0 +1,429 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:key"
+		{
+			"origin" "8846 -6528 385"
+			"spawnflags" "1"
+			"angles" "0 300 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:key"
+		{
+			"origin" "9880 -6735 135"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:key"
+		{
+			"origin" "11480 -6605 295"
+			"angles" "0 40 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:key"
+		{
+			"origin" "10890 -5145 85"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:key"
+		{
+			"origin" "11515 -5292 715"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_temple"
+			"classname" "info_player_start"
+		}
+
+		"add:key"
+		{
+			"model" "*162"
+			"origin" "9863 -6751 133"
+			"spawnflags" "1"
+			"StartDisabled" "0"
+			"trapsecret" "0"
+			"combinability" "1"
+			"classname" "trigger_once"
+			"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+			"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"anti_retour"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Game_Over.IsPlayerInXana"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"logic_relay_demon"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"10566.5 -6744 120"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"m_iszEntity" "keyman.room02"
+				"targetname" "sequence_open_door3"
+			}
+
+			"add:key"
+			{
+				"OnBeginSequence" "!self,AddOutput,targetname sequence_open_door3percy,3.9,-1,1,"
+			}
+		}
+	
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"9020 -6487.5 440"
+			}
+			"remove:key"
+			{
+				"OnStartTouch" "sequence_open_door3,StopActionLoop,,0,1,1,"
+				"OnStartTouch" "npc_furniture3.clip,Enable,,0,1,1,"			
+			}
+			"add:key"
+			{
+				"OnStartTouch" "sequence_open_door3percy,CancelSequence,,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"sequence_percy_jump"
+			}
+			"remove:key"
+			{
+				"OnBeginSequence" "bridge_03,EnableMotion,,0.6,1,1,"			
+			}		
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"10051 -5040 -305.5"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"13834.5 -5201 -76"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"keyman.room02"
+			}
+
+			"remove:key"
+			{
+				"OnDamagedByPlayer" "percy_hate,Reload,,0,-1,1,"
+				"OnFoundPlayer" "Game_Over.IsPlayerInXana,Test,,0,-1,1,*****OnFoundPlayer*****"
+				"OnFoundPlayer" "Percy_vcd_02,Cancel,,0,-1,1,"
+				"OnFoundPlayer" "Percy_vcd_03,Cancel,,0,-1,1,"
+				"OnFoundPlayer" "Percy_vcd_04,Cancel,,0,-1,1,"
+				"OnFoundPlayer" "sequence_open_door3,CancelSequence,,0,-1,1,"
+				"OnChangeRelationFromLiToha" "Game_Over.IsPlayerInXana,Test,,0.07,-1,1,*****OnChangeRelationFromLiToha*****"
+				"OnFirstSeenPlayerAsEnemy" "Game_Over.IsPlayerInXana,Test,,0.07,-1,1,*****OnFirstSeenPlayerAsEnemy*****"
+			}
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"percy_exit_run"
+			}
+
+			"remove:key"
+			{
+				"OnReachedGoal" "02sequence_open_door3,BeginSequence,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"OnReachedGoal" "percy_exit,BeginSequence,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"11687.1 -5501.5 668.18"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "teleport_players_01,Teleport,,2.9,-1,1,"
+				"OnStartTouch" "spawnpoint_02,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_temple,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"trig_portalstart02_open"
+				"origin"		"11676 -6552 360"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal.halfway,Close,,0,-1,1,"
+				"OnEndTouch" "portal.house001,Close,,0,-1,1,"
+				"OnEndTouch" "portal.halfway02,Close,,0,-1,1,"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_01,kill,,0,1,1,"
+				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11340.3 -4544.57 240"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "arches,Disable,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11536 -4040 172"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_02,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_temple,AddOutput,spawnflags 0,0,1,1,"
+				"OnStartTouch" "spawnpoint_03,AddOutput,spawnflags 1,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11676 -6521 360"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portalstart,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"12436 -6788 496"
+			}
+
+			"remove:key"
+			{
+				"OnTrigger" "portalstart,Close,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"10064 -6744 384"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal03,Close,,0,-1,1,"
+				"OnEndTouch" "portalroof02,Close,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"10096 -6744 384"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portalroof01,Close,,0,-1,1,"
+				"OnEndTouch" "portal.halfway02,Close,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"10480 -5397.04 448"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal.endpart02,Close,,0,-1,1,"
+				"OnEndTouch" "portal.house009,Close,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11213.9 -5230 240"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal.endpart02,Close,,0,-1,1,"
+				"OnEndTouch" "portal.endpart,Close,,0,-1,1,"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11126 -5226.5 280"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal.house009,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11960 -6706 360"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal.parvisentrance,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"11536 -3952 172"
+			}
+
+			"remove:key"
+			{
+				"OnEndTouch" "portal03,Close,,0,-1,1,"
+			}
+		}
+
+	}	
+}

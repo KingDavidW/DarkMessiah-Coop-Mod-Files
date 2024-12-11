@@ -1,0 +1,174 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "596 -1716 -463"
+			"spawnflags" "1"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1475 250 -1035"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "5 1660 -570"
+			"spawnflags" "0"
+			"angles" "0 290 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-905 960 -1600"
+			"spawnflags" "0"
+			"angles" "0 170 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1275 2315 -1180"
+			"spawnflags" "0"
+			"angles" "0 200 0"
+			"targetname" "spawnpoint_04"
+			"classname" "info_player_start"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"info_landmark_to_L12"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"-374 263 -2659"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"-809.5 2444 -2242.5"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "piege_04_trigger_02"
+				"origin"	"-1305 512 -963"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" "funcBut_AA"
+				"origin"	"245 1480 -577"
+			}
+			"add:key"
+			{
+				"OnPressed" "spawnpoint_01,kill,,0,-1,1,"
+				"OnPressed" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"-1520 1176.5 -1600"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_02,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"-1251 2524 -1195"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_03,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_04,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+	}	
+}

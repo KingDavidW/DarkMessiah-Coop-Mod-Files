@@ -1,0 +1,309 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"448 -4176 817"
+			"angles"	"0 90 0"
+			"targetname"		"spawnpoint_00"
+			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"-865 -3685 630"
+			"angles"	"0 200 0"
+			"targetname"		"spawnpoint_01"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"-3610 -3665 135"
+			"angles"	"0 270 0"
+			"targetname"		"spawnpoint_02"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"-5220 -2575 360"
+			"angles"	"0 300 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"-5220 -2575 360"
+			"angles"	"0 300 0"
+			"targetname"		"spawnpoint_03"
+			"spawnflags"        "0"
+		}		
+
+		"add:entity"
+		{
+			"model" "*91"
+			"origin" "-2049.5 -3911.92 521.9"
+			"spawnflags" "1"
+			"StartDisabled" "0"
+			"targetname" "WormReturnToStart"
+			"trapsecret" "0"
+			"combinability" "1"
+			"wait" "10"
+			"classname" "trigger_multiple"
+			"OnStartTouch" "Ver_immense,SetTrack,VerDEBUT_track_15,0.1,-1,1,"
+			"OnStartTouch" "spawnpoint_00,kill,,0,1,1,"
+			"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,1,1,"
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"player_loadsaved"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"TRIGG_disappearFIN"
+			}
+		}
+		
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"player_no_exit"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"landmark_06_A_06_B"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"origin"		"-2528 -3128 -88"
+			}
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"Ver_trig_pilier_01"
+			}
+			"remove:key"
+			{
+				"OnStartTouch" "Ver_pilier_01,Wake,,0,-1,1,WAKE"
+				"OnStartTouch" "Ver_pilier_01,EnableMotion,,0.2,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"worm_attack_littlearch02"
+			}
+			"modify:key"
+			{
+				"target_key" "origin"
+				"new_value" "-2648 -3500 -640"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"VerTrack_Balliste3"
+			}
+			"modify:key"
+			{
+				"target_key" "origin"
+				"new_value" "-2900 -3556 -613"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"VerTrack_N_ARCH"
+			}
+			"modify:key"
+			{
+				"target_key" "origin"
+				"new_value" "-2592 -3450 -1164.86"
+			}
+			"modify:key"
+			{
+				"target_key" "angles"
+				"new_value" "0 200 0"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"VerTrack_BatSWbas02"
+			}
+			"modify:key"
+			{
+				"target_key" "origin"
+				"new_value" "-2584 -3450 -1165"
+			}
+			"modify:key"
+			{
+				"target_key" "angles"
+				"new_value" "0 202 0"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"VerTrack_poisonBatSWbas"
+			}
+			"modify:key"
+			{
+				"target_key" "origin"
+				"new_value" "-2700 -3600 -1165"
+			}
+			"modify:key"
+			{
+				"target_key" "angles"
+				"new_value" "0 200 0"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"prop_physics"
+				"origin"		"-3340.82 -3843.9 36.9646"
+			}
+			"modify:key"
+			{
+				"target_key" "classname"
+				"new_value" "prop_dynamic"
+			}
+			"add:key"
+			{
+				"solid" "6"
+				"damagefilter" "nulldmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"prop_physics"
+				"origin"		"-3295.31 -3843.9 36.9646"
+			}
+			"modify:key"
+			{
+				"target_key" "classname"
+				"new_value" "prop_dynamic"
+			}
+			"add:key"
+			{
+				"solid" "6"
+				"damagefilter" "nulldmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"VerBatSWbasTRIGG"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_01,kill,,0,1,1,"
+				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"Ver_pont_TRIGG_player"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_02,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"Ver_blocs_SWrelay"
+			}
+			"remove:key"
+			{
+				"OnTrigger" "Ver_blocs_S_WARCH5,EnableMotion,,0.1,-1,1,"
+				"OnTrigger" "Ver_blocs_S_WARCH5,Wake,,0.11,-1,1,"
+				"OnTrigger" "Ver_blocs_S_WARCH2,Wake,,0.27,-1,1,"
+				"OnTrigger" "Ver_blocs_S_WARCH2,EnableMotion,,0.26,-1,1,"
+				"OnTrigger" "Ver_blocs_S_WARCH1,Wake,,0.79,-1,1,"
+				"OnTrigger" "Ver_blocs_S_WARCH1,EnableMotion,,0.78,-1,1,"
+				"OnTrigger" "Ver_DOOR_S_WARCH6,OpenCrush,,0.5,-1,1,"
+				"OnTrigger" "Ver_blocsSW_ARCH_IMPACT6,Impact,,0.8,-1,1,"
+				"OnTrigger" "Ver_blocsSW_ARCH_IMPACT6,Impact,,1,-1,1,"
+			}
+		}
+	}
+}

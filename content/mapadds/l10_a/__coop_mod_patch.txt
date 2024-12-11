@@ -1,0 +1,205 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "1372 -5795 710"
+			"angles" "0 280 0"
+			"spawnflags" "1"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "280 2045 -25"
+			"angles" "0 180 0"
+			"spawnflags" "0"
+			"targetname" "spawnpoint_00_from10c"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-85 -2755 -280"
+			"angles" "0 180 0"
+			"spawnflags" "0"
+			"targetname" "spawnpoint_01_from10c"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "1222 -4111 572"
+			"filtername" "gotorb"
+			"targetname" "filter_gotorb"
+			"Negated" "1"
+			"combinability" "1"
+			"classname" "filter_activator_name"
+		}
+
+		"add:entity"
+		{
+			"model" "*153"
+			"origin" "280 2045 -25"
+			"spawnflags" "1"
+			"targetname" "transition_giveorb"
+			"startdisabled" "1"
+			"filtername" "filter_gotorb"
+			"classname" "trigger_multiple"
+			"OnTrigger" "!activator,AddOutput,targetname gotorb,0,-1,1,"
+			"OnTrigger" "playerinputs,GiveItem,key_blackorb,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"model" "*153"
+			"origin" "1372 -5795 710"
+			"spawnflags" "1"
+			"startdisabled" "1"
+			"targetname" "teleport_start_10c"
+			"target" "teleport_start_10c_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"origin" "280 2045 -25"
+			"angles" "0 180 0"
+			"spawnflags" "0"
+			"targetname" "teleport_start_10c_target"
+			"classname" "info_teleport_destination"
+		}
+
+		"add:entity"
+		{
+			"model" "*157"
+			"origin" "1535 -6420 676"
+			"angles" "0 90 60"
+			"spawnflags" "2"
+			"solidbsp" "0"
+			"Solidity" "2"
+			"StartDisabled" "0"
+			"targetname" "smoothentry"
+			"classname" "func_brush"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "1"
+			"globalstate" "transitionback_from_10c"
+			"classname" "logic_auto"
+			"OnMapSpawn" "teleport_start_10c,Enable,,0,-1,1,"
+			"OnMapSpawn" "teleport_start_10c,Kill,,30,-1,1,"
+			"OnMapSpawn" "spawnpoint_00,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_00_from10c,AddOutput,spawnflags 1,0,-1,1,"
+			"OnMapSpawn" "transition_giveorb,Enable,,0,-1,1,"
+			"OnMapSpawn" "arantir_objective.branch,SetValue,1,0,-1,1,"
+			"OnMapSpawn" "trigger_firstentry,kill,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags "0"
+			"targetname" "global_transitionfrom_10c"
+			"globalstate" "transitionback_from_10c"
+			"classname" "env_global"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"landmark"			"l10_AtoL10_C_1"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"16 -444 144"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"-104 -2736 -124"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00_from10c,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_01_from10c,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"16 -3600 912.5"
+			}
+
+			"add:key"
+			{
+				"targetname"	"trigger_firstentry"
+				"OnTrigger" "playerInputs,ObjectiveDone,l10_objective_enter_necro,1.5,-1,1,"
+				"OnTrigger" "playerInputs,AddPrimaryObjective,l10_objective_arantir_find,3.5,1,1,"
+				"OnTrigger" "squad_l03_room01.friend,ApplyRelationship,,0,-1,1,"			
+			}
+
+			"remove:key"
+			{
+				"OnTrigger" "teleport_shutdown,Trigger,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1120 -5536 928"
+			}
+			"add:key"
+			{
+				"targetname"	"trigger_firstentry"
+			}
+		}
+	}	
+}

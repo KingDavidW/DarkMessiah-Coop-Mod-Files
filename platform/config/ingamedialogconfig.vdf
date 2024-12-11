@@ -1,0 +1,162 @@
+"UserConfigData"
+{
+	"Servers"
+	{
+		"Pages"
+		{
+			"InternetGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"191"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"110"
+				}
+			}
+			"FavoriteGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"239"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"62"
+				}
+			}
+			"HistoryGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"145"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"55"
+					"9_hidden"		"0"
+					"9_width"		"101"
+				}
+			}
+			"SpectateGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"239"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"62"
+				}
+			}
+			"LanGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"192"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"109"
+				}
+			}
+			"FriendsGames"
+			{
+				"gamelist"
+				{
+					"0_hidden"		"0"
+					"0_width"		"16"
+					"1_hidden"		"1"
+					"1_width"		"16"
+					"2_hidden"		"0"
+					"2_width"		"16"
+					"3_hidden"		"0"
+					"3_width"		"239"
+					"4_hidden"		"1"
+					"4_width"		"64"
+					"5_hidden"		"0"
+					"5_width"		"112"
+					"6_hidden"		"0"
+					"6_width"		"55"
+					"7_hidden"		"0"
+					"7_width"		"90"
+					"8_hidden"		"0"
+					"8_width"		"62"
+				}
+			}
+		}
+		"DialogServerBrowser.res"
+		{
+			"xpos"		"51"
+			"ypos"		"178"
+			"wide"		"640"
+			"tall"		"422"
+		}
+	}
+}

@@ -1,0 +1,162 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "4380 3888 971"
+			"spawnflags" "1"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "3380 1450 2170"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "4080 -1205 3050"
+			"spawnflags" "0"
+			"angles" "0 90 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "4273 360 3670"
+			"spawnflags" "0"
+			"angles" "0 180 0"
+			"targetname" "spawnpoint_00_from7b"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "4070 1862 2170"
+			"spawnflags" "0"
+			"angles" "0 270 0"
+			"targetname" "spawnpoint_elevator"
+			"parentname" "elevator_21A"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "4455 4099 1145"
+			"model" "*50"
+			"targetname" "teleport_start_7b"
+			"target" "teleport_start_target_7b"
+			"startdisabled" "1"
+			"spawnflags" "1"
+			"classname" "trigger_teleport"
+			"OnStartTouch" "!self,Kill,,10,1,1,"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"info_landmark_to_L07"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"6"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+			}
+			"modify:key"
+			{
+				"OnTrigger" "portal.halfway,Close,,0,-1,1,"
+				"OnTrigger" "portal.elevator,Close,,0,-1,1,"		
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_once"
+				"OnTrigger" 	"player_loadsaved,Reload,,0,-1,1,"			
+			}
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"remove:key"
+			{
+				"OnTrigger" 	"player_loadsaved,Reload,,0,-1,1,"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"		"r21_trigg_SON_oiseaux"
+			}
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "6285 459 7848"
+			"globalstate" "Elevators_FIXED"
+			"spawnflags" "0"
+			"classname" "logic_auto"
+			"OnMapTransition" "elevator_fixed.relay,Trigger,,0,-1,1,"
+			"OnLoadGame" "elevator_fixed.relay,Trigger,,0,-1,1,"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "0"
+			"globalstate" "Elevators_FIXED"
+			"classname" "logic_auto"
+			"OnMapSpawn" "spawnpoint_00,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_01,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_03,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_00_from7b,AddOutput,spawnflags 1,0,-1,1,"
+			"OnMapSpawn" "teleport_start_7b,Enable,,0,-1,1,"
+			"OnMapSpawn" "changeto_7b,Disable,,0,-1,1,"
+			"OnMapSpawn" "bridgeportal,Open,,0,-1,1,"
+			"OnMapSpawn" "portal.halfway,Open,,0,-1,1,"
+		}
+
+	}	
+}

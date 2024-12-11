@@ -1,0 +1,19 @@
+// this file defines the contents of the platform menu
+"Platform"
+{
+	"Menu"
+	{
+		"Friends"
+		{
+			"dll"		"friendsui.dll"
+			"interface"	"VGuiModuleTracker001"
+			"MenuName"	"#App_Friends"
+		}
+		"Servers"
+		{
+			"dll"		"serverbrowser.dll"
+			"interface"	"VGuiModuleServerBrowser001"
+			"MenuName"	"#App_Servers"
+		}
+	}
+}

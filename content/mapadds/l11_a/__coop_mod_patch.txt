@@ -1,0 +1,417 @@
+"mapadd_keyvalues"
+{
+	PreInitialize"
+	{	
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"  "info_player_start"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "-2272 -3140 -880"
+			"spawnflags" "1"
+			"angles" "0 75 0"
+			"targetname" "spawnpoint_00"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-370 -3565 -218"
+			"spawnflags" "0"
+			"angles" "0 140 0"
+			"targetname" "spawnpoint_01"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "-1435 -2780 180"
+			"spawnflags" "0"
+			"angles" "0 0 0"
+			"targetname" "spawnpoint_02"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"origin" "287 -1933 140"
+			"spawnflags" "0"
+			"angles" "0 150 0"
+			"targetname" "spawnpoint_03"
+			"classname" "info_player_start"
+		}
+
+		"add:entity"
+		{
+			"model" "*56"
+			"targetname" "teleport_trigger_01"
+			"origin" "472 -1895 151"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_trigger_01_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*98"
+			"targetname" "teleport_trigger_01"
+			"origin" "-1600 -2704 -72"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_trigger_01_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*98"
+			"targetname" "teleport_trigger_01"
+			"origin" "-672.52 -3664 -88"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_trigger_01_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*98"
+			"targetname" "teleport_trigger_01"
+			"origin" "-960 -3152 -728"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_trigger_01_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"model" "*98"
+			"targetname" "teleport_trigger_01"
+			"origin" "-2578 -2768 -739"
+			"spawnflags" "1"
+			"StartDisabled" "1"
+			"target" "teleport_trigger_01_target"
+			"classname" "trigger_teleport"
+		}
+
+		"add:entity"
+		{
+			"origin" "287 -1933 140"
+			"angles" "0 150 0"
+			"targetname" "teleport_trigger_01_target"
+			"classname" "info_teleport_destination"
+		}
+
+		"add:entity"
+		{
+			"origin" "-2272 -3140 -880"
+			"angles" "0 75 0"
+			"targetname" "startteleport_target"
+			"classname" "info_teleport_destination"
+		}
+
+		"add:entity"
+		{
+			"model" "*27"
+			"origin" "-2226 -3338 -486"
+			"spawnflags" "1"
+			"targetname" "startteleport"
+			"target" "startteleport_target"
+			"classname" "trigger_teleport"
+		}
+
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"closepartie1_a"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"268 -2060 388"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_multiple"
+				"origin"	"-2024 -2944 -18"
+			}
+
+			"remove:key"
+			{
+				"OnStartTouch" "portal_cliff,Close,,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"1440 -940 -736"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"-416 -2296 -521.5"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"-1600 -2704 -72"
+			}
+			"remove:key"
+			{
+				"OnEndTouch" "fire_01,Disable,,0,-1,1,"
+				"OnEndTouch" "embers_04,Kill,,0,-1,1,"
+			}
+		}		
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_once"
+				"origin"	"-437 -3529 -204"
+			}
+			"modify:key"
+			{
+				"target_key"	"origin"
+				"new_value"		"-437 -3495 -204"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname" "trigger_multiple"
+				"origin"	"-1364 -2770 132"
+			}
+		
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_once"
+			}
+
+			"remove:key"
+			{
+				"OnTrigger" "partie1,Close,,0,-1,1,"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"				
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"openpartie1_a"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"		"trigger_multiple"
+				"origin"		"472 -1895 151"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"CS2.ZoneB"
+				"origin"		"216 -1916 144"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"OnEndTouch"
+				"new_key"		"OnEndTouchAll"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"keyman.room02"
+			}
+
+			"remove:key"
+			{
+				"OnChangeRelationFromLiToha" "Game_Over.IsPlayerInXana,Test,,0,-1,1,Percy OnChangeRelationFromLiToha"
+				"OnFoundPlayer" "Game_Over.IsPlayerInXana,Test,,0,-1,1,Percy OnFoundPlayer"
+				"OnFirstSeenPlayerAsEnemy" "Game_Over.IsPlayerInXana,Test,,0,-1,1,Percy OnChangeRelationFromLiToha"
+			}
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}	
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"HumanGuard.room02.04"
+			}
+
+			"remove:key"
+			{
+				"OnChangeRelationFromLiToha" "Game_Over.PercyEnemy,Trigger,,0,-1,1,npc_human_guard OnChangeRelationFromLiToha"
+				"OnDeath" "Game_Over.PercyEnemy,Trigger,,0,-1,1,npc_human_guard OnDeath"
+				"OnFoundPlayer" "Game_Over.PercyEnemy,Trigger,,0,-1,1,npc_human_guard OnFoundPlayer"			
+			}
+
+			"add:key"
+			{
+				"damagefilter" "noplydmg"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"mm_player_inputs"
+			}
+
+			"remove:key"
+			{
+				"OnXanaExit" "Game_Over.IsPlayerInXana,SetValue,0,0,-1,1,"
+				"OnXanaEnter" "Game_Over.IsPlayerInXana,SetValue,1,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Percy.2VillagerCloseDoor"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "teleport_trigger_01,Enable,,0,1,1,"
+				"OnTrigger" "teleport_trigger_01,Kill,,2,1,1,"
+				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+				"OnTrigger" "partie1b,Close,,0,1,1,"
+				"OnTrigger" "portal_firstsection,Close,,0,1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"m_iszEntity" "keyman.room02"
+				"targetname" "sequence_open_door2"
+			}
+
+			"add:key"
+			{
+				"OnBeginSequence" "!self,AddOutput,targetname sequence_open_door2percy,0,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"Percy.5VillagerCloseDoor2"
+			}
+
+			"remove:key"
+			{
+				"OnTrigger" "sequence_open_door2,StopActionLoop,,0,-1,1,"
+				"OnTrigger" "npc_furniture2.clip,Enable,,0,-1,1,npc_furniture2.clip Enable"
+			}
+
+			"add:key"
+			{
+				"OnTrigger" "sequence_open_door2percy,CancelSequence,,0,-1,1,"
+				"OnTrigger" "CS3.02.KeymanGoToA,Trigger,,0.1,1,1,"
+			}
+		}
+
+	}	
+}
