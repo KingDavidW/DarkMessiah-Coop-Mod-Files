@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -61,20 +61,6 @@
 			{
 				"classname"	"trigger_multiple"
 				"origin"	"3460 1028 -1300"
-			}
-		}
-
-		"modify:entity"
-		{
-			TargetMarkers
-			{
-				"classname"	"trigger_changelevel"
-				"landmark" 	"l03_atob"
-			}
-			"modify:key"
-			{
-				"target_key"	"spawnflags"
-				"new_value"		"6"
 			}
 		}
 
@@ -159,6 +145,30 @@
 			{
 				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
 				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"model" "*85"
+			"StartDisabled"	"1"
+			"Solidity"	"2"
+			"solidbsp"	"1"
+			"spawnflags"	"2"
+			"classname"	"func_brush"
+			"targetname"	"changelevel_blocker_l03_atob"
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname" 	"changelvl.toL4"
+			}
+			"modify:key"
+			{
+				"target_key"	"spawnflags"
+				"new_value"		"0"
 			}
 		}
 

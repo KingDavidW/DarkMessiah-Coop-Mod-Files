@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -13,7 +13,7 @@
 		"add:entity"
 		{
 			"classname"			"info_player_start"
-			"origin"			"1388.6 -644.985 -11.2139"
+			"origin"			"-1533.482910 -5280.165035 -11.2139"
 			"angles"			"0 0 0"
 			"targetname"		"spawnpoint_00"
 			"spawnflags"        "1"
@@ -180,6 +180,48 @@
 				"OnEndSequence" "spawnpoint_00,kill,,0.2,-1,1,"
 				"OnEndSequence" "spawnpoint_01,AddOutput,spawnflags 1,0.2,-1,1,"
 				"OnEndSequence" "teleport_01,Teleport,,0,1,1,"				
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"origin" "1804 -645.45 867.5"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_01,kill,,0.2,-1,1,"
+				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0.2,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"origin" "1981.5 543 1042"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_02,kill,,0.2,-1,1,"
+				"OnStartTouch" "spawnpoint_03,AddOutput,spawnflags 1,0.2,-1,1,"			
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"origin" "-138 1476 897.5"
+			}
+
+			"add:key"
+			{
+				"OnStartTouch" "spawnpoint_03,kill,,0.2,-1,1,"
+				"OnStartTouch" "spawnpoint_04,AddOutput,spawnflags 1,0.2,-1,1,"			
 			}
 		}
 

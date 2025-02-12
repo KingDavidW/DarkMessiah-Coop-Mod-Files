@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -35,6 +35,28 @@
 			"angles"			"0 270 0"
 			"targetname"		"spawnpoint_02"
 			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"			"-3482.991699 -11847.701172 840"
+			"angles"			"0 180 0"
+			"targetname"		"spawnpoint_from_l02b2"
+			"spawnflags"        "0"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "1"
+			"globalstate" "transitionback_from_l02b2"
+			"classname" "logic_auto"
+			"OnMapSpawn" "spawnpoint_00,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_01,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_02,kill,,0,-1,1,"
+			"OnMapSpawn" "spawnpoint_from_l02b2,AddOutput,spawnflags 1,0,-1,1,"
+			"OnMapSpawn" "transitionback_from_l02b2,TurnOff,,0.5,-1,1,"
 		}
 
 		"modify:entity"
@@ -77,6 +99,30 @@
 			{
 				"OnTrigger" "spawnpoint_01,kill,,0,-1,1,"
 				"OnTrigger" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_changelevel"
+				"landmark"	"b1toB2ter"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"func_brush"
+			}
+
+			"add:key"
+			{
+				"StartDisabled"	"1"
+				"Solidity"	"2"
+				"solidbsp"	"1"
+				"spawnflags"	"2"
 			}
 		}
 

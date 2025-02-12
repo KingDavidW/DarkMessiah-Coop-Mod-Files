@@ -1,0 +1,5 @@
+closecaption_manifest
+{
+	"load_file"		"resource/dmcoop/menu_english.txt"
+	"load_file"		"resource/dmcoop/lobby_english.txt"
+}

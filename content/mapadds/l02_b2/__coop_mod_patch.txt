@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -48,9 +48,35 @@
 
 			"modify:key"
 			{
-				"target_key"	"spawnflags"
-				"new_value"		"6"
+				"target_key"	"classname"
+				"new_value"		"func_brush"
 			}
+
+			"add:key"
+			{
+				"StartDisabled"	"1"
+				"Solidity"	"2"
+				"solidbsp"	"1"
+				"spawnflags"	"2"
+			}
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "0"
+			"targetname" "global_coop_froml02b2"
+			"initialstate" "0"
+			"globalstate" "transitionback_from_l02b2"
+			"classname" "env_global"
+		}
+
+		"add:entity"
+		{
+			"origin" "0 0 0"
+			"spawnflags" "1"
+			"classname" "logic_auto"
+			"OnMapSpawn" "global_coop_froml02b2,TurnOn,,0.5,-1,1,"
 		}
 
 		"add:entity"

@@ -1,9 +1,0 @@
-VertexLitGeneric
-{
-	$basetexture "models/characters/uhealer/maget1/witch garment_skirt_diffuse"
-	$bumpmap "models/characters/uhealer/maget1/witch garment_skirt_Normal"
-	$surfaceprop Flesh
-
-	$alpha 0.9
-	$translucent 1
-}

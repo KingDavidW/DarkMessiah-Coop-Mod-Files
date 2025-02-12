@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -17,6 +17,49 @@
 			"angles"	"0 33.5 0"
 			"targetname"		"spawnpoint_00"
 			"spawnflags"        "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"trigger_teleport"
+			"model"		"*68"
+			"StartDisabled" 	"1"
+			"origin"	"1165 339.496 1565"
+			"angles"	"0 33.5 0"
+			"targetname"		"cinematic_teleport"
+			"target"			"spawnpoint_00a"
+			"spawnflags"		"1"
+		}
+
+		"add:entity"
+		{
+			"classname"	"env_sprite"
+			"origin"	"1165 339.496 1665"
+			"parentname" "cinematic_teleport"
+			"targetname" "sprite_teleportlocation"
+			"scale" "2"
+			"GlowProxySize" "2.0"
+			"model" "sprites/blueflare1.vmt"
+			"framerate" "10.0"
+			"maxdxlevel" "0"
+			"mindxlevel" "0"
+			"disablereceiveshadows" "0"
+			"rendercolor" "255 255 255"
+			"renderamt" "255"
+			"rendermode" "9"
+			"renderfx" "15"
+			"trapsecret" "0"
+			"combinability" "1"
+			"spawnflags" "1"
+		}
+
+		"add:entity"
+		{
+			"classname"			"info_player_start"
+			"origin"	"-2060.665771 -4587.571777 202.381226"
+			"angles"	"0 0 0"
+			"targetname"		"spawnpoint_00a"
+			"spawnflags"        "0"
 		}
 
 		"add:entity"
@@ -108,10 +151,10 @@
 			{
 				"classname"  "trigger_once"
 				"origin"	"876 -2427 436"
-			}	
+			}
 			"add:key"
 			{
-				"OnStartTouch" "spawnpoint_00,kill,,0,-1,1,"
+				"OnStartTouch" "spawnpoint_00a,kill,,0,-1,1,"
 				"OnStartTouch" "spawnpoint_01,AddOutput,spawnflags 1,0,-1,1,"
 			}
 		}
@@ -127,6 +170,33 @@
 			{
 				"OnStartTouch" "spawnpoint_01,kill,,0,-1,1,"
 				"OnStartTouch" "spawnpoint_02,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			"TargetMarkers"
+			{
+				"origin" "1136 192 2208"
+			}
+			"add:key"
+			{
+				"OnMapSpawn" "sprite_teleportlocation,hidesprite,,0.3,1,1,"
+			}
+		}
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"  "start.relay"
+			}
+			"add:key"
+			{
+				"OnTrigger" "spawnpoint_00,kill,,0,-1,1,"
+				"OnTrigger" "spawnpoint_00a,AddOutput,spawnflags 1,0,-1,1,"
+				"OnTrigger" "sprite_teleportlocation,showsprite,,0,1,1,"
+				"OnTrigger" "cinematic_teleport,Enable,,0,1,1,"
 			}
 		}
 	}

@@ -60,4 +60,25 @@
 			"Secure"		"0"
 		}
 	}
+	"History"
+	{
+		"1"
+		{
+			"players"		"0"
+			"maxplayers"		"0"
+			"address"		"unknown"
+			"lastplayed"		"1739387536"
+			"appid"		"0"
+			"Secure"		"0"
+		}
+		"2"
+		{
+			"players"		"0"
+			"maxplayers"		"0"
+			"address"		"unknown"
+			"lastplayed"		"1739387575"
+			"appid"		"0"
+			"Secure"		"0"
+		}
+	}
 }

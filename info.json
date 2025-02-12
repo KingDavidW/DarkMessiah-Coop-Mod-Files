@@ -5,6 +5,7 @@
 	"website"			    : 	"www.wiltostech.com",
 	"launch_parameters"		:	[ "-insecure", "+map_background none", "+setmaster add 5.161.243.235:27010" ],
 	"gameinfo_parameters"	:	[ "+type singleplayer_and_multiplayer" ],	
-    "modules"               :   [ "dmmmcoop.dll" ],
-	"version"				:	"Alpha 0.1"
+    "modules"               :   [ "dmcoop_server.dll", "dmcoop_client.dll" ],
+	"version"				:	"A1-02.12",
+	"localization_manifests":	["resource/dmcoop/main_manifest.txt"]
 }

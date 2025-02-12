@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -31,7 +31,7 @@
 		"add:entity"
 		{
 			"classname"			"info_player_start"
-			"origin"			"-252 -3872 -10"
+			"origin"			"-252 3872 -10"
 			"angles"			"0 190 0"
 			"targetname"		"spawnpoint_02"
 			"spawnflags"        "0"
@@ -94,6 +94,49 @@
 			{
 				"OnTrigger" "spawnpoint_02,kill,,0,-1,1,"
 				"OnTrigger" "spawnpoint_03,AddOutput,spawnflags 1,0,-1,1,"
+			}
+		}
+
+		"add:entity"
+		{
+			"model" "*27"
+			"StartDisabled"	"1"
+			"Solidity"	"2"
+			"solidbsp"	"1"
+			"spawnflags"	"2"
+			"classname"	"func_brush"
+			"targetname"	"changelevel_blocker_L02_B_to_L03_A"
+		}
+
+
+		"modify:entity"
+		{
+			TargetMarkers
+			{
+				"classname"	"trigger_once"
+				"origin"	"604 3477.25 -435"
+			}
+
+			"modify:key"
+			{
+				"target_key"	"classname"
+				"new_value"		"trigger_hurt"
+			}
+
+			"add:key"
+			{
+				"spawnflags" "1"
+				"StartDisabled" "0"
+				"damagetype" "32"
+				"damage" "999"
+			}
+		}
+
+		"remove:entity"
+		{
+			TargetMarkers
+			{
+				"targetname"	"player_loadsaved.relay"
 			}
 		}
 

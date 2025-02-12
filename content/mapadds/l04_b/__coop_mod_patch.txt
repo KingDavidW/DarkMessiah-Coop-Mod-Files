@@ -1,6 +1,6 @@
 "mapadd_keyvalues"
 {
-	PreInitialize"
+	"PreInitialize"
 	{	
 		"remove:entity"
 		{
@@ -58,7 +58,7 @@
 		"add:entity"
 		{
 			"classname"			"info_player_start"
-			"origin"			"--1942 -3473 -1264"
+			"origin"			"-1942 -3473 -1264"
 			"angles"			"0 0 0"
 			"targetname"		"spawnpoint_05"
 			"spawnflags"        "0"
