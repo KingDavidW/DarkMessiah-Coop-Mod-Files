@@ -7,5 +7,6 @@
 	"gameinfo_parameters"	:	[ "+type singleplayer_and_multiplayer" ],	
     "modules"               :   [ "dmcoop_server.dll", "dmcoop_client.dll" ],
 	"version"				:	"A1-02.16",
-	"localization_manifests":	["resource/dmcoop/main_manifest.txt"]
+	"localization_manifests":	["resource/dmcoop/main_manifest.txt"],
+	"autoexec_configs"		:	["coop_conf.cfg"]
 }
