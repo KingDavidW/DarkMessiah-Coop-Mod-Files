@@ -6,6 +6,6 @@
 	"launch_parameters"		:	[ "-insecure", "+map_background none", "+setmaster add 5.161.243.235:27010" ],
 	"gameinfo_parameters"	:	[ "+type singleplayer_and_multiplayer" ],	
     "modules"               :   [ "dmcoop_server.dll", "dmcoop_client.dll" ],
-	"version"				:	"A1-02.12",
+	"version"				:	"A1-02.16",
 	"localization_manifests":	["resource/dmcoop/main_manifest.txt"]
 }
