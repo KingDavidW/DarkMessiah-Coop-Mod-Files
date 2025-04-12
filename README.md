@@ -27,6 +27,8 @@ SSJGregory for their Archer model
 StickyFingaz for their Undead Warrior model and reanimating the Priestess
 Riddick3 for their Undead Priestess Model and Xana transformation model
 
-Kazmsf for hosting the master server we are using to proxy connections
+siohaza for hosting the master server we are using to proxy connections
+
+_bt for constant low level help with the engine
 
 The many wonderful testers, past, future, and present!
