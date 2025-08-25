@@ -17,7 +17,7 @@ Take the files from this repository and extract them into that folder.
 Make the Advanced SDK the first mod in your list, above everything else.
 
 ## Recommended Installation
-The best way to install this mod is by actually doing a git checkout to that **restoration_mod** folder. That way, as this mod updates, you can just download the changes instead of redownloading the whole repository. I recommend [Github Desktop](https://desktop.github.com/download/) to make it easier, but it is entirely up to you.
+The best way to install this mod is by actually doing a git checkout to that **dm_coop** folder. That way, as this mod updates, you can just download the changes instead of redownloading the whole repository. I recommend [Github Desktop](https://desktop.github.com/download/) to make it easier, but it is entirely up to you.
 
 ## Credits
 King David for doing all the programming stuff and creating world model animations for weapons
